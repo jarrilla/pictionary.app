@@ -1,0 +1,8 @@
+.git
+.gitignore
+README.md
+pictionary-server
+tmp/
+.env.example
+# Don't ignore .air.toml
+!.air.toml 

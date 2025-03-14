@@ -1,0 +1,32 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - pictionary-network
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    env_file:
+      - ./backend/.env
+    environment:
+      - PORT=8080
+    ports:
+      - "8080:8080"
+    networks:
+      - pictionary-network
+    restart: unless-stopped
+    volumes:
+      - ./backend/.env:/app/.env
+
+networks:
+  pictionary-network:
+    driver: bridge 
