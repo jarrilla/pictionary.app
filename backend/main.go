@@ -113,8 +113,6 @@ func main() {
 }
 
 func cacheHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("Cache handler called")
-
 	// Get parameters from query string
 	word := r.URL.Query().Get("word")
 	partOfSpeech := r.URL.Query().Get("partOfSpeech")

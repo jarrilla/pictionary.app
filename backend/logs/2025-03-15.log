@@ -58,3 +58,17 @@ INFO: 2025/03/15 13:27:49 [main.go:222] Successfully generated image for word: t
 INFO: 2025/03/15 13:27:49 [mongo_cache.go:117] Created new cache entry for word: test
 DEBUG: 2025/03/15 13:28:00 [main.go:123] Cache lookup request - Word: test, PartOfSpeech: noun
 DEBUG: 2025/03/15 13:28:00 [mongo_cache.go:147] Cache hit for word: test
+DEBUG: 2025/03/15 13:42:36 [main.go:123] Cache lookup request - Word: test, PartOfSpeech: noun
+DEBUG: 2025/03/15 13:42:37 [mongo_cache.go:140] Cache miss for word: test
+DEBUG: 2025/03/15 13:42:37 [main.go:140] Cache miss for word: test
+INFO: 2025/03/15 13:42:37 [main.go:162] Generating image for word: test (noun)
+DEBUG: 2025/03/15 13:42:37 [main.go:188] DALL-E prompt: Please draw a simple sketch of this: test (noun) A cupel or cupelling hearth in which precious metals are melted for trial and refinement.
+INFO: 2025/03/15 13:42:51 [main.go:222] Successfully generated image for word: test
+INFO: 2025/03/15 13:42:51 [mongo_cache.go:117] Created new cache entry for word: test
+DEBUG: 2025/03/15 13:43:08 [main.go:123] Cache lookup request - Word: count, PartOfSpeech: noun
+DEBUG: 2025/03/15 13:43:08 [mongo_cache.go:140] Cache miss for word: count
+DEBUG: 2025/03/15 13:43:08 [main.go:140] Cache miss for word: count
+INFO: 2025/03/15 13:43:08 [main.go:162] Generating image for word: count (noun)
+DEBUG: 2025/03/15 13:43:08 [main.go:188] DALL-E prompt: Please draw a simple sketch of this: count (noun) The act of counting or tallying a quantity.
+INFO: 2025/03/15 13:43:24 [main.go:222] Successfully generated image for word: count
+INFO: 2025/03/15 13:43:24 [mongo_cache.go:117] Created new cache entry for word: count
