@@ -14,13 +14,19 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 5173,
     strictPort: true,
+    hmr: {
+      host: 'localhost',
+      port: 5173
+    },
     watch: {
       usePolling: true,
+      interval: 1000,
     },
     proxy: {
       '/api': {
-        target: 'http://backend:8080',
+        target: process.env.VITE_API_URL || 'http://backend:8080',
         changeOrigin: true,
+        secure: false
       }
     }
   }

@@ -61,6 +61,18 @@
         </div>
         <div v-else-if="imageUrl" class="image-display">
           <img :src="imageUrl" alt="Generated image for the word" />
+          <button 
+            class="regenerate-btn" 
+            @click="generateImage(currentWord, wordData.meanings[selectedDefinition.meaningIndex].partOfSpeech, wordData.meanings[selectedDefinition.meaningIndex].definitions[selectedDefinition.definitionIndex].definition)"
+            :disabled="isImageLoading"
+            :title="'Click me if the image above wasn\'t helpful.'"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-emoji-frown" viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+              <path d="M4.285 12.433a.5.5 0 0 0 .683-.183A3.5 3.5 0 0 1 8 10.5c1.295 0 2.426.703 3.032 1.75a.5.5 0 0 0 .866-.5A4.5 4.5 0 0 0 8 9.5a4.5 4.5 0 0 0-3.898 2.25.5.5 0 0 0 .183.683M7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5m4 0c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5"/>
+            </svg>
+            <span>Regenerate</span>
+          </button>
         </div>
         <div v-else class="no-image">
           <p>No image available</p>
@@ -138,6 +150,16 @@ const generateImage = async (word: string, partOfSpeech: string, definition: str
   currentImageController.value = new AbortController()
   
   try {
+    // First check if image exists in cache
+    const cacheResponse = await axios.get(`/api/cache?word=${encodeURIComponent(word)}&partOfSpeech=${encodeURIComponent(partOfSpeech)}&definition=${encodeURIComponent(definition)}`)
+    
+    if (cacheResponse.data && cacheResponse.data.imageUrl) {
+      imageUrl.value = cacheResponse.data.imageUrl
+      isImageLoading.value = false
+      return
+    }
+
+    // If not in cache, generate new image
     const response = await axios.post('/api/generate-image', {
       word,
       partOfSpeech,
@@ -162,7 +184,34 @@ const generateImage = async (word: string, partOfSpeech: string, definition: str
         return
       }
       
-      if (err.response && err.response.data && err.response.data.error) {
+      // If cache check returns 404, proceed with generation
+      if (err.response && err.response.status === 404) {
+        try {
+          const response = await axios.post('/api/generate-image', {
+            word,
+            partOfSpeech,
+            definition
+          }, {
+            signal: currentImageController.value.signal
+          })
+          
+          if (!currentImageController.value.signal.aborted) {
+            if (response.data && response.data.imageUrl) {
+              imageUrl.value = response.data.imageUrl
+            } else if (response.data && response.data.error) {
+              imageError.value = response.data.error
+            }
+          }
+        } catch (genErr: any) {
+          if (!currentImageController.value.signal.aborted) {
+            if (genErr.response && genErr.response.data && genErr.response.data.error) {
+              imageError.value = genErr.response.data.error
+            } else {
+              imageError.value = 'Failed to generate image. Please try again.'
+            }
+          }
+        }
+      } else if (err.response && err.response.data && err.response.data.error) {
         imageError.value = err.response.data.error
       } else {
         imageError.value = 'Failed to generate image. Please try again.'
@@ -367,10 +416,51 @@ const selectDefinition = (meaningIndex: number, definitionIndex: number) => {
 
 .image-display {
   width: 300px;
-  height: 300px;
+  height: auto;
+  min-height: 300px;
   border-radius: 8px;
   overflow: hidden;
   margin-top: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.image-display img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.regenerate-btn {
+  padding: 10px 20px;
+  background-color: #42b983;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.regenerate-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.regenerate-btn:hover {
+  background-color: #3aa876;
+}
+
+.regenerate-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
 }
 
 .no-image {
