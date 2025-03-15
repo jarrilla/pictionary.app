@@ -87,12 +87,15 @@ func main() {
 	r.HandleFunc("/api/health", healthCheckHandler).Methods("GET")
 	r.HandleFunc("/api/cache", cacheHandler).Methods("GET")
 
+	// Add 404 handler for undefined API routes
+	r.NotFoundHandler = http.HandlerFunc(notFoundHandler)
+
 	// Serve static files from the frontend build directory in production
 	r.PathPrefix("/").Handler(http.FileServer(http.Dir("../frontend/dist")))
 
 	// Set up CORS
 	c := cors.New(cors.Options{
-		AllowedOrigins:   []string{"http://localhost:5173", "http://localhost:8080"},
+		AllowedOrigins:   []string{os.Getenv("FRONTEND_URL")},
 		AllowedMethods:   []string{"GET", "POST", "OPTIONS"},
 		AllowedHeaders:   []string{"Content-Type", "Authorization"},
 		AllowCredentials: true,
@@ -241,4 +244,11 @@ func healthCheckHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	json.NewEncoder(w).Encode(map[string]string{"status": "healthy"})
+}
+
+func notFoundHandler(w http.ResponseWriter, r *http.Request) {
+	logger.Warning("404 Not Found: %s", r.URL.Path)
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusNotFound)
+	json.NewEncoder(w).Encode(map[string]string{"error": "Route not found"})
 }
