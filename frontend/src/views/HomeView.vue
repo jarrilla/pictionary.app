@@ -86,6 +86,7 @@ const selectedDefinition = ref({
   meaningIndex: 0,
   definitionIndex: 0
 })
+const currentImageController = ref<AbortController | null>(null)
 
 const hasDefinition = computed(() => wordData.value !== null)
 
@@ -128,26 +129,46 @@ const generateImage = async (word: string, partOfSpeech: string, definition: str
   isImageLoading.value = true
   imageError.value = ''
   
+  // Cancel any pending request
+  if (currentImageController.value) {
+    currentImageController.value.abort()
+  }
+
+  // Create new controller for this request
+  currentImageController.value = new AbortController()
+  
   try {
     const response = await axios.post('/api/generate-image', {
       word,
       partOfSpeech,
       definition
+    }, {
+      signal: currentImageController.value.signal
     })
     
-    if (response.data && response.data.imageUrl) {
-      imageUrl.value = response.data.imageUrl
-    } else if (response.data && response.data.error) {
-      imageError.value = response.data.error
+    // Only update the UI if this request wasn't aborted
+    if (!currentImageController.value.signal.aborted) {
+      if (response.data && response.data.imageUrl) {
+        imageUrl.value = response.data.imageUrl
+      } else if (response.data && response.data.error) {
+        imageError.value = response.data.error
+      }
+      isImageLoading.value = false
     }
   } catch (err: any) {
-    if (err.response && err.response.data && err.response.data.error) {
-      imageError.value = err.response.data.error
-    } else {
-      imageError.value = 'Failed to generate image. Please try again.'
+    // Only update UI if this request wasn't aborted
+    if (!currentImageController.value?.signal.aborted) {
+      if (err.name === 'CanceledError' || err.name === 'AbortError') {
+        return
+      }
+      
+      if (err.response && err.response.data && err.response.data.error) {
+        imageError.value = err.response.data.error
+      } else {
+        imageError.value = 'Failed to generate image. Please try again.'
+      }
+      isImageLoading.value = false
     }
-  } finally {
-    isImageLoading.value = false
   }
 }
 
