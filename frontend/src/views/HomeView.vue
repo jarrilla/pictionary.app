@@ -84,7 +84,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from '@vue/runtime-dom'
-import axios from 'axios'
+import axios from '@/utils/axios'
 
 const searchWord = ref('')
 const wordData = ref<any>(null)
@@ -180,6 +180,11 @@ const generateImage = async (word: string, partOfSpeech: string, definition: str
 }
 
 const regenerateImage = async (word: string, partOfSpeech: string, definition: string) => {
+  // Reset image and show loading state
+  imageUrl.value = ''
+  isImageLoading.value = true
+  imageError.value = ''
+
   try {
     const response = await axios.post('/api/generate-image', {
       word,

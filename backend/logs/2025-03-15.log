@@ -1,0 +1,60 @@
+INFO: 2025/03/15 13:19:27 [main.go:57] Starting Pictionary App backend server...
+INFO: 2025/03/15 13:19:27 [mongo_cache.go:49] Successfully connected to MongoDB
+INFO: 2025/03/15 13:19:27 [mongo_cache.go:66] Successfully created MongoDB indexes
+WARNING: 2025/03/15 13:19:27 [main.go:79] PORT not set, using default: 8080
+INFO: 2025/03/15 13:19:27 [main.go:108] Server is running on port 8080
+DEBUG: 2025/03/15 13:22:42 [main.go:123] Cache lookup request - Word: Hello, PartOfSpeech: noun
+DEBUG: 2025/03/15 13:22:42 [mongo_cache.go:140] Cache miss for word: Hello
+DEBUG: 2025/03/15 13:22:42 [main.go:140] Cache miss for word: Hello
+INFO: 2025/03/15 13:22:42 [main.go:162] Generating image for word: Hello (noun)
+DEBUG: 2025/03/15 13:22:42 [main.go:188] DALL-E prompt: Please draw a simple sketch of this: Hello (noun) "Hello!" or an equivalent greeting.
+INFO: 2025/03/15 13:22:54 [main.go:222] Successfully generated image for word: Hello
+INFO: 2025/03/15 13:22:55 [mongo_cache.go:117] Created new cache entry for word: Hello
+DEBUG: 2025/03/15 13:23:06 [main.go:123] Cache lookup request - Word: puzzle, PartOfSpeech: noun
+DEBUG: 2025/03/15 13:23:06 [mongo_cache.go:140] Cache miss for word: puzzle
+DEBUG: 2025/03/15 13:23:06 [main.go:140] Cache miss for word: puzzle
+INFO: 2025/03/15 13:23:06 [main.go:162] Generating image for word: puzzle (noun)
+DEBUG: 2025/03/15 13:23:06 [main.go:188] DALL-E prompt: Please draw a simple sketch of this: puzzle (noun) Anything that is difficult to understand or make sense of.
+INFO: 2025/03/15 13:23:19 [main.go:222] Successfully generated image for word: puzzle
+INFO: 2025/03/15 13:23:19 [mongo_cache.go:117] Created new cache entry for word: puzzle
+DEBUG: 2025/03/15 13:23:25 [main.go:123] Cache lookup request - Word: puzzle, PartOfSpeech: noun
+DEBUG: 2025/03/15 13:23:25 [mongo_cache.go:140] Cache miss for word: puzzle
+DEBUG: 2025/03/15 13:23:25 [main.go:140] Cache miss for word: puzzle
+INFO: 2025/03/15 13:23:25 [main.go:162] Generating image for word: puzzle (noun)
+DEBUG: 2025/03/15 13:23:25 [main.go:188] DALL-E prompt: Please draw a simple sketch of this: puzzle (noun) A game for one or more people that is more or less difficult to work out or complete.
+INFO: 2025/03/15 13:23:37 [main.go:222] Successfully generated image for word: puzzle
+INFO: 2025/03/15 13:23:37 [mongo_cache.go:117] Created new cache entry for word: puzzle
+DEBUG: 2025/03/15 13:23:43 [main.go:123] Cache lookup request - Word: puzzle, PartOfSpeech: noun
+DEBUG: 2025/03/15 13:23:43 [mongo_cache.go:147] Cache hit for word: puzzle
+DEBUG: 2025/03/15 13:23:44 [main.go:123] Cache lookup request - Word: puzzle, PartOfSpeech: noun
+DEBUG: 2025/03/15 13:23:44 [mongo_cache.go:147] Cache hit for word: puzzle
+DEBUG: 2025/03/15 13:24:03 [main.go:123] Cache lookup request - Word: puzzle, PartOfSpeech: noun
+DEBUG: 2025/03/15 13:24:03 [mongo_cache.go:147] Cache hit for word: puzzle
+INFO: 2025/03/15 13:24:05 [main.go:162] Generating image for word: puzzle (noun)
+DEBUG: 2025/03/15 13:24:05 [main.go:188] DALL-E prompt: Please draw a simple sketch of this: puzzle (noun) Anything that is difficult to understand or make sense of.
+INFO: 2025/03/15 13:24:17 [main.go:222] Successfully generated image for word: puzzle
+INFO: 2025/03/15 13:24:17 [mongo_cache.go:119] Updated existing cache entry for word: puzzle
+INFO: 2025/03/15 13:24:20 [main.go:162] Generating image for word: puzzle (noun)
+DEBUG: 2025/03/15 13:24:20 [main.go:188] DALL-E prompt: Please draw a simple sketch of this: puzzle (noun) Anything that is difficult to understand or make sense of.
+INFO: 2025/03/15 13:24:32 [main.go:222] Successfully generated image for word: puzzle
+INFO: 2025/03/15 13:24:32 [mongo_cache.go:119] Updated existing cache entry for word: puzzle
+DEBUG: 2025/03/15 13:26:46 [main.go:123] Cache lookup request - Word: test, PartOfSpeech: noun
+DEBUG: 2025/03/15 13:26:46 [mongo_cache.go:140] Cache miss for word: test
+DEBUG: 2025/03/15 13:26:46 [main.go:140] Cache miss for word: test
+INFO: 2025/03/15 13:26:46 [main.go:162] Generating image for word: test (noun)
+DEBUG: 2025/03/15 13:26:46 [main.go:188] DALL-E prompt: Please draw a simple sketch of this: test (noun) A challenge, trial.
+INFO: 2025/03/15 13:26:56 [main.go:222] Successfully generated image for word: test
+INFO: 2025/03/15 13:26:56 [mongo_cache.go:117] Created new cache entry for word: test
+INFO: 2025/03/15 13:26:59 [main.go:162] Generating image for word: test (noun)
+DEBUG: 2025/03/15 13:26:59 [main.go:188] DALL-E prompt: Please draw a simple sketch of this: test (noun) A challenge, trial.
+INFO: 2025/03/15 13:27:12 [main.go:222] Successfully generated image for word: test
+INFO: 2025/03/15 13:27:12 [mongo_cache.go:119] Updated existing cache entry for word: test
+DEBUG: 2025/03/15 13:27:38 [main.go:123] Cache lookup request - Word: test, PartOfSpeech: noun
+DEBUG: 2025/03/15 13:27:38 [mongo_cache.go:140] Cache miss for word: test
+DEBUG: 2025/03/15 13:27:38 [main.go:140] Cache miss for word: test
+INFO: 2025/03/15 13:27:38 [main.go:162] Generating image for word: test (noun)
+DEBUG: 2025/03/15 13:27:38 [main.go:188] DALL-E prompt: Please draw a simple sketch of this: test (noun) Judgment; distinction; discrimination.
+INFO: 2025/03/15 13:27:49 [main.go:222] Successfully generated image for word: test
+INFO: 2025/03/15 13:27:49 [mongo_cache.go:117] Created new cache entry for word: test
+DEBUG: 2025/03/15 13:28:00 [main.go:123] Cache lookup request - Word: test, PartOfSpeech: noun
+DEBUG: 2025/03/15 13:28:00 [mongo_cache.go:147] Cache hit for word: test
