@@ -1,6 +1,14 @@
 <template>
   <div class="home">
-    <div :class="{ 'search-container': true, 'search-top': hasDefinition }">
+    <div
+      :class="{
+        'search-container': true,
+        'search-top': hasDefinition
+      }"
+      :style="{
+        'height': hasDefinition ? '5rem' : '10rem'
+      }"
+    >
       <h1 v-if="!hasDefinition">Type a word to look up its definition</h1>
       <div class="search-box">
         <input 
@@ -23,16 +31,27 @@
     <div v-if="hasDefinition" class="result-container">
       <div class="definition-container">
         <h2>{{ currentWord }}</h2>
-        <div v-for="(meaning, index) in wordData.meanings" :key="index" class="meaning">
-          <p class="part-of-speech">{{ meaning.partOfSpeech }}</p>
-          <div v-for="(definition, defIndex) in meaning.definitions" :key="defIndex" class="definition">
-            <p>{{ definition.definition }}</p>
-            <p v-if="definition.example" class="example">Example: "{{ definition.example }}"</p>
+
+        <div class="meanings-container">
+          <div v-for="(meaning, index) in wordData.meanings" :key="index" class="meaning">
+            <p class="part-of-speech">{{ meaning.partOfSpeech }}</p>
+            <div
+              v-for="(definition, defIndex) in meaning.definitions"
+              :key="defIndex"
+              class="definition"
+              @click="selectDefinition(index, defIndex)"
+              :class="{
+                'selected': selectedDefinition.meaningIndex === index && selectedDefinition.definitionIndex === defIndex
+              }"
+            >
+              <p>{{ definition.definition }}</p>
+              <p v-if="definition.example" class="example">Example: "{{ definition.example }}"</p>
+            </div>
           </div>
         </div>
+        
       </div>
       <div class="image-container">
-        <h3>Image</h3>
         <div v-if="isImageLoading" class="loading-spinner">
           <div class="spinner"></div>
           <p>Generating image...</p>
@@ -63,6 +82,10 @@ const error = ref('')
 const imageUrl = ref('')
 const isImageLoading = ref(false)
 const imageError = ref('')
+const selectedDefinition = ref({
+  meaningIndex: 0,
+  definitionIndex: 0
+})
 
 const hasDefinition = computed(() => wordData.value !== null)
 
@@ -127,6 +150,16 @@ const generateImage = async (word: string, partOfSpeech: string, definition: str
     isImageLoading.value = false
   }
 }
+
+const selectDefinition = (meaningIndex: number, definitionIndex: number) => {
+  selectedDefinition.value.meaningIndex = meaningIndex
+  selectedDefinition.value.definitionIndex = definitionIndex
+
+  const partOfSpeech = wordData.value.meanings[meaningIndex].partOfSpeech
+  const definition = wordData.value.meanings[meaningIndex].definitions[definitionIndex].definition
+
+  generateImage(currentWord.value, partOfSpeech, definition)
+}
 </script>
 
 <style scoped>
@@ -134,12 +167,19 @@ const generateImage = async (word: string, partOfSpeech: string, definition: str
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .search-container {
   width: 100%;
-  text-align: center;
   transition: all 0.5s ease;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
 }
 
 .search-container h1 {
@@ -147,14 +187,9 @@ const generateImage = async (word: string, partOfSpeech: string, definition: str
   color: #2c3e50;
 }
 
-.search-top {
-  margin-bottom: 30px;
-}
-
 .search-box {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
 }
 
 .search-box input {
@@ -207,19 +242,33 @@ const generateImage = async (word: string, partOfSpeech: string, definition: str
 .result-container {
   display: flex;
   width: 100%;
-  margin-top: 20px;
+  border-top: 1px solid #ddd;
+  height: calc(100% - 5rem);
+  box-sizing: border-box;
 }
 
 .definition-container {
   flex: 1;
-  padding-right: 20px;
+  padding-right: 0.5rem;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .definition-container h2 {
   font-size: 28px;
   color: #2c3e50;
-  margin-bottom: 15px;
+  margin-bottom: 0.5rem;
   text-transform: capitalize;
+  height: 3rem;
+}
+
+.meanings-container {
+  height: calc(100% - 3rem - 0.5rem);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column nowrap;
 }
 
 .meaning {
@@ -236,6 +285,13 @@ const generateImage = async (word: string, partOfSpeech: string, definition: str
   margin-bottom: 15px;
   padding-left: 15px;
   border-left: 3px solid #42b983;
+  cursor: pointer;
+  transition: background-color 0.25s;
+}
+
+.definition:hover,
+.definition.selected {
+  background-color: #42b98335;
 }
 
 .example {
@@ -248,13 +304,14 @@ const generateImage = async (word: string, partOfSpeech: string, definition: str
   flex: 1;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
 .image-container img {
   max-width: 100%;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .loading-spinner {

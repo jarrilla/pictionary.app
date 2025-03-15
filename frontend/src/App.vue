@@ -17,11 +17,14 @@
 #app {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  height: 100vh;
 }
 
 header {
-  margin-bottom: 20px;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 nav {
@@ -43,7 +46,9 @@ nav a.router-link-exact-active {
 main {
   background-color: white;
   border-radius: 8px;
-  padding: 20px;
+  padding: 1rem;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+  height: calc(100% - 5rem - 2rem);
 }
 </style>
