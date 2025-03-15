@@ -95,7 +95,7 @@ func main() {
 
 	// Set up CORS
 	c := cors.New(cors.Options{
-		AllowedOrigins:   []string{os.Getenv("FRONTEND_URL")},
+		AllowedOrigins:   strings.Split(os.Getenv("FRONTEND_URL"), ","),
 		AllowedMethods:   []string{"GET", "POST", "OPTIONS"},
 		AllowedHeaders:   []string{"Content-Type", "Authorization"},
 		AllowCredentials: true,
