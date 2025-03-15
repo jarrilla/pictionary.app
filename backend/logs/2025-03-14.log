@@ -1,0 +1,108 @@
+INFO: 2025/03/14 23:23:04 [main.go:50] Starting Pictionary App backend server...
+INFO: 2025/03/14 23:23:04 [mongo_cache.go:49] Successfully connected to MongoDB
+WARNING: 2025/03/14 23:23:04 [mongo_cache.go:64] Failed to create index: (AtlasError) user is not allowed to do action [createIndex] on [pictionary.cache]
+INFO: 2025/03/14 23:23:04 [main.go:98] Server is running on port 8080
+INFO: 2025/03/14 23:23:57 [main.go:50] Starting Pictionary App backend server...
+INFO: 2025/03/14 23:23:57 [mongo_cache.go:49] Successfully connected to MongoDB
+WARNING: 2025/03/14 23:23:58 [mongo_cache.go:64] Failed to create index: (AtlasError) user is not allowed to do action [createIndex] on [pictionary.cache]
+INFO: 2025/03/14 23:23:58 [main.go:98] Server is running on port 8080
+INFO: 2025/03/14 23:25:05 [main.go:50] Starting Pictionary App backend server...
+INFO: 2025/03/14 23:25:05 [mongo_cache.go:49] Successfully connected to MongoDB
+INFO: 2025/03/14 23:25:06 [mongo_cache.go:66] Successfully created MongoDB indexes
+INFO: 2025/03/14 23:25:06 [main.go:98] Server is running on port 8080
+INFO: 2025/03/14 23:27:22 [main.go:57] Starting Pictionary App backend server...
+INFO: 2025/03/14 23:27:22 [mongo_cache.go:49] Successfully connected to MongoDB
+INFO: 2025/03/14 23:27:22 [mongo_cache.go:66] Successfully created MongoDB indexes
+INFO: 2025/03/14 23:27:22 [main.go:105] Server is running on port 8080
+INFO: 2025/03/14 23:29:36 [main.go:57] Starting Pictionary App backend server...
+INFO: 2025/03/14 23:29:37 [mongo_cache.go:49] Successfully connected to MongoDB
+INFO: 2025/03/14 23:29:37 [mongo_cache.go:66] Successfully created MongoDB indexes
+INFO: 2025/03/14 23:29:37 [main.go:105] Server is running on port 8080
+INFO: 2025/03/14 23:29:47 [main.go:57] Starting Pictionary App backend server...
+INFO: 2025/03/14 23:29:47 [mongo_cache.go:49] Successfully connected to MongoDB
+INFO: 2025/03/14 23:29:47 [mongo_cache.go:66] Successfully created MongoDB indexes
+INFO: 2025/03/14 23:29:47 [main.go:105] Server is running on port 8080
+INFO: 2025/03/14 23:33:17 [main.go:57] Starting Pictionary App backend server...
+INFO: 2025/03/14 23:33:18 [mongo_cache.go:49] Successfully connected to MongoDB
+INFO: 2025/03/14 23:33:18 [mongo_cache.go:66] Successfully created MongoDB indexes
+INFO: 2025/03/14 23:33:18 [main.go:105] Server is running on port 8080
+INFO: 2025/03/14 23:35:19 [main.go:57] Starting Pictionary App backend server...
+INFO: 2025/03/14 23:35:20 [mongo_cache.go:49] Successfully connected to MongoDB
+INFO: 2025/03/14 23:35:20 [mongo_cache.go:66] Successfully created MongoDB indexes
+INFO: 2025/03/14 23:35:20 [main.go:105] Server is running on port 8080
+WARNING: 2025/03/14 23:36:44 [main.go:120] Invalid cache lookup request body: EOF
+INFO: 2025/03/14 23:36:44 [main.go:164] Generating image for word: septum (noun)
+DEBUG: 2025/03/14 23:36:44 [main.go:190] DALL-E prompt: Please draw a simple sketch of this: septum (noun) A wall separating two cavities; a partition
+INFO: 2025/03/14 23:36:57 [main.go:224] Successfully generated image for word: septum
+INFO: 2025/03/14 23:36:57 [mongo_cache.go:117] Created new cache entry for word: septum
+WARNING: 2025/03/14 23:38:09 [main.go:120] Invalid cache lookup request body: EOF
+INFO: 2025/03/14 23:38:09 [main.go:164] Generating image for word: septum (noun)
+DEBUG: 2025/03/14 23:38:09 [main.go:190] DALL-E prompt: Please draw a simple sketch of this: septum (noun) A wall separating two cavities; a partition
+INFO: 2025/03/14 23:38:20 [main.go:224] Successfully generated image for word: septum
+INFO: 2025/03/14 23:38:20 [mongo_cache.go:119] Updated existing cache entry for word: septum
+WARNING: 2025/03/14 23:39:13 [main.go:120] Invalid cache lookup request body: EOF
+INFO: 2025/03/14 23:39:13 [main.go:164] Generating image for word: septum (noun)
+DEBUG: 2025/03/14 23:39:13 [main.go:190] DALL-E prompt: Please draw a simple sketch of this: septum (noun) A wall separating two cavities; a partition
+INFO: 2025/03/14 23:39:25 [main.go:224] Successfully generated image for word: septum
+INFO: 2025/03/14 23:39:25 [mongo_cache.go:119] Updated existing cache entry for word: septum
+INFO: 2025/03/14 23:39:49 [main.go:57] Starting Pictionary App backend server...
+INFO: 2025/03/14 23:39:49 [mongo_cache.go:49] Successfully connected to MongoDB
+INFO: 2025/03/14 23:39:49 [mongo_cache.go:66] Successfully created MongoDB indexes
+INFO: 2025/03/14 23:39:49 [main.go:105] Server is running on port 8080
+WARNING: 2025/03/14 23:39:52 [main.go:120] Invalid cache lookup request body: EOF
+INFO: 2025/03/14 23:39:52 [main.go:164] Generating image for word: septum (noun)
+DEBUG: 2025/03/14 23:39:52 [main.go:190] DALL-E prompt: Please draw a simple sketch of this: septum (noun) A wall separating two cavities; a partition
+INFO: 2025/03/14 23:40:06 [main.go:224] Successfully generated image for word: septum
+INFO: 2025/03/14 23:40:06 [mongo_cache.go:119] Updated existing cache entry for word: septum
+INFO: 2025/03/14 23:42:49 [main.go:57] Starting Pictionary App backend server...
+INFO: 2025/03/14 23:42:50 [mongo_cache.go:49] Successfully connected to MongoDB
+INFO: 2025/03/14 23:42:50 [mongo_cache.go:66] Successfully created MongoDB indexes
+INFO: 2025/03/14 23:42:50 [main.go:105] Server is running on port 8080
+DEBUG: 2025/03/14 23:42:54 [main.go:120] Cache lookup request - Word: septum, PartOfSpeech: noun
+DEBUG: 2025/03/14 23:42:55 [mongo_cache.go:147] Cache hit for word: septum
+DEBUG: 2025/03/14 23:43:07 [main.go:120] Cache lookup request - Word: septum, PartOfSpeech: noun
+DEBUG: 2025/03/14 23:43:07 [mongo_cache.go:147] Cache hit for word: septum
+DEBUG: 2025/03/14 23:45:10 [main.go:120] Cache lookup request - Word: septum, PartOfSpeech: noun
+DEBUG: 2025/03/14 23:45:10 [mongo_cache.go:147] Cache hit for word: septum
+INFO: 2025/03/14 23:45:13 [main.go:159] Generating image for word: septum (noun)
+DEBUG: 2025/03/14 23:45:13 [main.go:185] DALL-E prompt: Please draw a simple sketch of this: septum (noun) A wall separating two cavities; a partition
+INFO: 2025/03/14 23:45:25 [main.go:219] Successfully generated image for word: septum
+INFO: 2025/03/14 23:45:25 [mongo_cache.go:119] Updated existing cache entry for word: septum
+DEBUG: 2025/03/14 23:45:31 [main.go:120] Cache lookup request - Word: septum, PartOfSpeech: noun
+DEBUG: 2025/03/14 23:45:31 [mongo_cache.go:147] Cache hit for word: septum
+DEBUG: 2025/03/14 23:45:45 [main.go:120] Cache lookup request - Word: septum, PartOfSpeech: noun
+DEBUG: 2025/03/14 23:45:45 [mongo_cache.go:140] Cache miss for word: septum
+DEBUG: 2025/03/14 23:45:45 [main.go:137] Cache miss for word: septum
+DEBUG: 2025/03/14 23:45:57 [main.go:120] Cache lookup request - Word: septum, PartOfSpeech: noun
+DEBUG: 2025/03/14 23:45:57 [mongo_cache.go:147] Cache hit for word: septum
+INFO: 2025/03/14 23:46:16 [main.go:159] Generating image for word: septum (noun)
+DEBUG: 2025/03/14 23:46:16 [main.go:185] DALL-E prompt: Please draw a simple sketch of this: septum (noun) A wall separating two cavities; a partition
+INFO: 2025/03/14 23:46:28 [main.go:219] Successfully generated image for word: septum
+INFO: 2025/03/14 23:46:28 [mongo_cache.go:119] Updated existing cache entry for word: septum
+DEBUG: 2025/03/14 23:46:33 [main.go:120] Cache lookup request - Word: septum, PartOfSpeech: noun
+DEBUG: 2025/03/14 23:46:33 [mongo_cache.go:140] Cache miss for word: septum
+DEBUG: 2025/03/14 23:46:33 [main.go:137] Cache miss for word: septum
+DEBUG: 2025/03/14 23:47:20 [main.go:120] Cache lookup request - Word: septum, PartOfSpeech: noun
+DEBUG: 2025/03/14 23:47:20 [mongo_cache.go:147] Cache hit for word: septum
+DEBUG: 2025/03/14 23:47:23 [main.go:120] Cache lookup request - Word: septum, PartOfSpeech: noun
+DEBUG: 2025/03/14 23:47:23 [mongo_cache.go:140] Cache miss for word: septum
+DEBUG: 2025/03/14 23:47:23 [main.go:137] Cache miss for word: septum
+INFO: 2025/03/14 23:47:24 [main.go:159] Generating image for word: septum (noun)
+DEBUG: 2025/03/14 23:47:24 [main.go:185] DALL-E prompt: Please draw a simple sketch of this: septum (noun) A partition that separates the cells of a fruit.
+INFO: 2025/03/14 23:47:35 [main.go:219] Successfully generated image for word: septum
+INFO: 2025/03/14 23:47:35 [mongo_cache.go:117] Created new cache entry for word: septum
+DEBUG: 2025/03/14 23:47:36 [main.go:120] Cache lookup request - Word: septum, PartOfSpeech: noun
+DEBUG: 2025/03/14 23:47:36 [mongo_cache.go:147] Cache hit for word: septum
+DEBUG: 2025/03/14 23:47:38 [main.go:120] Cache lookup request - Word: septum, PartOfSpeech: noun
+DEBUG: 2025/03/14 23:47:38 [mongo_cache.go:147] Cache hit for word: septum
+DEBUG: 2025/03/14 23:47:39 [main.go:120] Cache lookup request - Word: septum, PartOfSpeech: noun
+DEBUG: 2025/03/14 23:47:39 [mongo_cache.go:147] Cache hit for word: septum
+DEBUG: 2025/03/14 23:47:42 [main.go:120] Cache lookup request - Word: septum, PartOfSpeech: noun
+DEBUG: 2025/03/14 23:47:42 [mongo_cache.go:140] Cache miss for word: septum
+DEBUG: 2025/03/14 23:47:42 [main.go:137] Cache miss for word: septum
+INFO: 2025/03/14 23:47:42 [main.go:159] Generating image for word: septum (noun)
+DEBUG: 2025/03/14 23:47:42 [main.go:185] DALL-E prompt: Please draw a simple sketch of this: septum (noun) A partition that separates the cells of a (septated) fungus.
+INFO: 2025/03/14 23:47:55 [main.go:219] Successfully generated image for word: septum
+INFO: 2025/03/14 23:47:55 [mongo_cache.go:117] Created new cache entry for word: septum
+DEBUG: 2025/03/14 23:51:16 [main.go:120] Cache lookup request - Word: septum, PartOfSpeech: noun
+DEBUG: 2025/03/14 23:51:16 [mongo_cache.go:147] Cache hit for word: septum

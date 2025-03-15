@@ -63,7 +63,7 @@
           <img :src="imageUrl" alt="Generated image for the word" />
           <button 
             class="regenerate-btn" 
-            @click="generateImage(currentWord, wordData.meanings[selectedDefinition.meaningIndex].partOfSpeech, wordData.meanings[selectedDefinition.meaningIndex].definitions[selectedDefinition.definitionIndex].definition)"
+            @click="regenerateImage(currentWord, wordData.meanings[selectedDefinition.meaningIndex].partOfSpeech, wordData.meanings[selectedDefinition.meaningIndex].definitions[selectedDefinition.definitionIndex].definition)"
             :disabled="isImageLoading"
             :title="'Click me if the image above wasn\'t helpful.'"
           >
@@ -151,7 +151,13 @@ const generateImage = async (word: string, partOfSpeech: string, definition: str
   
   try {
     // First check if image exists in cache
-    const cacheResponse = await axios.get(`/api/cache?word=${encodeURIComponent(word)}&partOfSpeech=${encodeURIComponent(partOfSpeech)}&definition=${encodeURIComponent(definition)}`)
+    const cacheResponse = await axios.get('/api/cache', {
+      params: {
+        word,
+        partOfSpeech,
+        definition
+      }
+    })
     
     if (cacheResponse.data && cacheResponse.data.imageUrl) {
       imageUrl.value = cacheResponse.data.imageUrl
@@ -159,63 +165,48 @@ const generateImage = async (word: string, partOfSpeech: string, definition: str
       return
     }
 
-    // If not in cache, generate new image
+    // If no cache hit, generate new image
+    await regenerateImage(word, partOfSpeech, definition)
+  } catch (err: any) {
+    // If cache check returns 404 or any other error, proceed with generation
+    if (err.response && err.response.status !== 404) {
+      // Only log non-404 errors as they indicate actual problems
+      console.error('Cache check failed:', err)
+    }
+    
+    // Try generating a new image
+    await regenerateImage(word, partOfSpeech, definition)
+  }
+}
+
+const regenerateImage = async (word: string, partOfSpeech: string, definition: string) => {
+  try {
     const response = await axios.post('/api/generate-image', {
       word,
       partOfSpeech,
       definition
     }, {
-      signal: currentImageController.value.signal
+      signal: currentImageController.value?.signal
     })
     
-    // Only update the UI if this request wasn't aborted
-    if (!currentImageController.value.signal.aborted) {
+    if (!currentImageController.value?.signal.aborted) {
       if (response.data && response.data.imageUrl) {
         imageUrl.value = response.data.imageUrl
       } else if (response.data && response.data.error) {
         imageError.value = response.data.error
       }
-      isImageLoading.value = false
     }
   } catch (err: any) {
-    // Only update UI if this request wasn't aborted
     if (!currentImageController.value?.signal.aborted) {
-      if (err.name === 'CanceledError' || err.name === 'AbortError') {
-        return
-      }
-      
-      // If cache check returns 404, proceed with generation
-      if (err.response && err.response.status === 404) {
-        try {
-          const response = await axios.post('/api/generate-image', {
-            word,
-            partOfSpeech,
-            definition
-          }, {
-            signal: currentImageController.value.signal
-          })
-          
-          if (!currentImageController.value.signal.aborted) {
-            if (response.data && response.data.imageUrl) {
-              imageUrl.value = response.data.imageUrl
-            } else if (response.data && response.data.error) {
-              imageError.value = response.data.error
-            }
-          }
-        } catch (genErr: any) {
-          if (!currentImageController.value.signal.aborted) {
-            if (genErr.response && genErr.response.data && genErr.response.data.error) {
-              imageError.value = genErr.response.data.error
-            } else {
-              imageError.value = 'Failed to generate image. Please try again.'
-            }
-          }
-        }
-      } else if (err.response && err.response.data && err.response.data.error) {
+      if (err.response?.data?.error) {
         imageError.value = err.response.data.error
       } else {
         imageError.value = 'Failed to generate image. Please try again.'
       }
+      console.error('Image generation failed:', err)
+    }
+  } finally {
+    if (!currentImageController.value?.signal.aborted) {
       isImageLoading.value = false
     }
   }
@@ -423,6 +414,7 @@ const selectDefinition = (meaningIndex: number, definitionIndex: number) => {
   margin-top: 20px;
   position: relative;
   display: flex;
+  align-items: center;
   flex-direction: column;
   gap: 1rem;
 }
@@ -435,32 +427,46 @@ const selectDefinition = (meaningIndex: number, definitionIndex: number) => {
 
 .regenerate-btn {
   padding: 10px 20px;
-  background-color: #42b983;
-  color: white;
-  border: none;
-  border-radius: 4px;
+  background-color: transparent;
+  color: #2c3e50;
+  border: 2px solid #2c3e50;
   cursor: pointer;
   font-size: 16px;
-  transition: all 0.3s;
+  transition: all 0.2s;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  width: 100%;
+  width: 90%;
+  box-sizing: border-box;
 }
 
 .regenerate-btn svg {
   width: 20px;
   height: 20px;
+  box-sizing: border-box;
 }
 
 .regenerate-btn:hover {
-  background-color: #3aa876;
+  background-color: #2c3e50;
+  color: white;
+  transform: scale(1.02);
+}
+
+.regenerate-btn:hover svg {
+  transform: rotate(-10deg);
 }
 
 .regenerate-btn:disabled {
-  background-color: #cccccc;
+  background-color: transparent;
+  border-color: #cccccc;
+  color: #cccccc;
   cursor: not-allowed;
+  transform: none;
+}
+
+.regenerate-btn:disabled svg {
+  transform: none;
 }
 
 .no-image {
