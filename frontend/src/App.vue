@@ -47,8 +47,7 @@ main {
   background-color: white;
   border-radius: 8px;
   padding: 1rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-
-  height: calc(100% - 5rem - 2rem);
+  box-sizing: border-box;
+  height: calc(100% - 5rem);
 }
 </style>

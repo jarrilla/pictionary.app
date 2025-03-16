@@ -72,3 +72,106 @@ INFO: 2025/03/15 13:43:08 [main.go:162] Generating image for word: count (noun)
 DEBUG: 2025/03/15 13:43:08 [main.go:188] DALL-E prompt: Please draw a simple sketch of this: count (noun) The act of counting or tallying a quantity.
 INFO: 2025/03/15 13:43:24 [main.go:222] Successfully generated image for word: count
 INFO: 2025/03/15 13:43:24 [mongo_cache.go:117] Created new cache entry for word: count
+INFO: 2025/03/15 19:34:51 [main.go:57] Starting Pictionary App backend server...
+INFO: 2025/03/15 19:34:51 [mongo_cache.go:49] Successfully connected to MongoDB
+INFO: 2025/03/15 19:34:51 [mongo_cache.go:66] Successfully created MongoDB indexes
+WARNING: 2025/03/15 19:34:51 [main.go:79] PORT not set, using default: 8080
+INFO: 2025/03/15 19:34:51 [main.go:108] Server is running on port 8080
+DEBUG: 2025/03/15 19:35:15 [main.go:121] Cache lookup request - Word: Test, PartOfSpeech: noun
+DEBUG: 2025/03/15 19:35:15 [mongo_cache.go:140] Cache miss for word: Test
+DEBUG: 2025/03/15 19:35:15 [main.go:138] Cache miss for word: Test
+INFO: 2025/03/15 19:35:15 [main.go:160] Generating image for word: Test (noun)
+DEBUG: 2025/03/15 19:35:15 [main.go:186] DALL-E prompt: Please draw a simple sketch of this: Test (noun) A challenge, trial.
+INFO: 2025/03/15 19:35:26 [main.go:220] Successfully generated image for word: Test
+INFO: 2025/03/15 19:35:26 [mongo_cache.go:117] Created new cache entry for word: Test
+DEBUG: 2025/03/15 19:37:11 [main.go:121] Cache lookup request - Word: test, PartOfSpeech: noun
+DEBUG: 2025/03/15 19:37:11 [mongo_cache.go:147] Cache hit for word: test
+DEBUG: 2025/03/15 19:37:16 [main.go:121] Cache lookup request - Word: test, PartOfSpeech: noun
+DEBUG: 2025/03/15 19:37:16 [mongo_cache.go:147] Cache hit for word: test
+DEBUG: 2025/03/15 19:37:25 [main.go:121] Cache lookup request - Word: test, PartOfSpeech: noun
+DEBUG: 2025/03/15 19:37:25 [mongo_cache.go:140] Cache miss for word: test
+DEBUG: 2025/03/15 19:37:25 [main.go:138] Cache miss for word: test
+INFO: 2025/03/15 19:37:25 [main.go:160] Generating image for word: test (noun)
+DEBUG: 2025/03/15 19:37:25 [main.go:186] DALL-E prompt: Please draw a simple sketch of this: test (noun) (normally “Test”) A Test match.
+INFO: 2025/03/15 19:37:38 [main.go:220] Successfully generated image for word: test
+INFO: 2025/03/15 19:37:38 [mongo_cache.go:117] Created new cache entry for word: test
+DEBUG: 2025/03/15 19:46:27 [main.go:121] Cache lookup request - Word: test, PartOfSpeech: noun
+DEBUG: 2025/03/15 19:46:27 [mongo_cache.go:147] Cache hit for word: test
+DEBUG: 2025/03/15 19:49:21 [main.go:121] Cache lookup request - Word: Test, PartOfSpeech: noun
+DEBUG: 2025/03/15 19:49:21 [mongo_cache.go:147] Cache hit for word: Test
+DEBUG: 2025/03/15 19:49:27 [main.go:121] Cache lookup request - Word: Test, PartOfSpeech: noun
+DEBUG: 2025/03/15 19:49:27 [mongo_cache.go:140] Cache miss for word: Test
+DEBUG: 2025/03/15 19:49:27 [main.go:138] Cache miss for word: Test
+INFO: 2025/03/15 19:49:27 [main.go:160] Generating image for word: Test (noun)
+DEBUG: 2025/03/15 19:49:27 [main.go:186] DALL-E prompt: Please draw a simple sketch of this: Test (noun) A cupel or cupelling hearth in which precious metals are melted for trial and refinement.
+INFO: 2025/03/15 19:49:40 [main.go:220] Successfully generated image for word: Test
+INFO: 2025/03/15 19:49:40 [mongo_cache.go:117] Created new cache entry for word: Test
+DEBUG: 2025/03/15 20:25:45 [main.go:121] Cache lookup request - Word: Test, PartOfSpeech: noun
+DEBUG: 2025/03/15 20:25:45 [mongo_cache.go:140] Cache miss for word: Test
+DEBUG: 2025/03/15 20:25:45 [main.go:138] Cache miss for word: Test
+INFO: 2025/03/15 20:25:45 [main.go:160] Generating image for word: Test (noun)
+DEBUG: 2025/03/15 20:25:45 [main.go:186] DALL-E prompt: Please draw a simple sketch of this: Test (noun) (academia) An examination, given often during the academic term.
+INFO: 2025/03/15 20:25:58 [main.go:220] Successfully generated image for word: Test
+INFO: 2025/03/15 20:25:58 [mongo_cache.go:117] Created new cache entry for word: Test
+DEBUG: 2025/03/15 20:39:45 [main.go:121] Cache lookup request - Word: yoyo, PartOfSpeech: noun
+DEBUG: 2025/03/15 20:39:45 [mongo_cache.go:140] Cache miss for word: yoyo
+DEBUG: 2025/03/15 20:39:45 [main.go:138] Cache miss for word: yoyo
+INFO: 2025/03/15 20:39:45 [main.go:160] Generating image for word: yoyo (noun)
+DEBUG: 2025/03/15 20:39:45 [main.go:186] DALL-E prompt: Please draw a simple sketch of this: yoyo (noun) A toy consisting of a spheroidal or cylindrical spindle having a circular groove in which string is wound; it is used by holding the string in the fingers and reeling the spindle up and down by movements of the wrist.
+INFO: 2025/03/15 20:39:56 [main.go:220] Successfully generated image for word: yoyo
+INFO: 2025/03/15 20:39:56 [mongo_cache.go:117] Created new cache entry for word: yoyo
+INFO: 2025/03/15 21:07:47 [main.go:160] Generating image for word: yoyo (noun)
+DEBUG: 2025/03/15 21:07:47 [main.go:186] DALL-E prompt: Please draw a simple sketch of this: yoyo (noun) A toy consisting of a spheroidal or cylindrical spindle having a circular groove in which string is wound; it is used by holding the string in the fingers and reeling the spindle up and down by movements of the wrist.
+INFO: 2025/03/15 21:08:03 [main.go:220] Successfully generated image for word: yoyo
+INFO: 2025/03/15 21:08:03 [mongo_cache.go:119] Updated existing cache entry for word: yoyo
+DEBUG: 2025/03/15 21:10:15 [main.go:121] Cache lookup request - Word: Roman, PartOfSpeech: noun
+DEBUG: 2025/03/15 21:10:15 [mongo_cache.go:140] Cache miss for word: Roman
+DEBUG: 2025/03/15 21:10:15 [main.go:138] Cache miss for word: Roman
+INFO: 2025/03/15 21:10:15 [main.go:160] Generating image for word: Roman (noun)
+DEBUG: 2025/03/15 21:10:15 [main.go:186] DALL-E prompt: Please draw a simple sketch of this: Roman (noun) One of the main three types used for the Latin alphabet (the others being italics and blackletter), in which the ascenders are mostly straight.
+INFO: 2025/03/15 21:10:26 [main.go:220] Successfully generated image for word: Roman
+INFO: 2025/03/15 21:10:26 [mongo_cache.go:117] Created new cache entry for word: Roman
+DEBUG: 2025/03/15 21:11:25 [main.go:121] Cache lookup request - Word: Roman, PartOfSpeech: noun
+DEBUG: 2025/03/15 21:11:25 [mongo_cache.go:147] Cache hit for word: Roman
+DEBUG: 2025/03/15 21:14:28 [main.go:121] Cache lookup request - Word: Horse, PartOfSpeech: noun
+DEBUG: 2025/03/15 21:14:28 [mongo_cache.go:140] Cache miss for word: Horse
+DEBUG: 2025/03/15 21:14:28 [main.go:138] Cache miss for word: Horse
+INFO: 2025/03/15 21:14:28 [main.go:160] Generating image for word: Horse (noun)
+DEBUG: 2025/03/15 21:14:28 [main.go:186] DALL-E prompt: Please draw a simple sketch of this: Horse (noun) Any of several animals related to Equus ferus caballus.
+INFO: 2025/03/15 21:14:42 [main.go:220] Successfully generated image for word: Horse
+INFO: 2025/03/15 21:14:42 [mongo_cache.go:117] Created new cache entry for word: Horse
+DEBUG: 2025/03/15 21:18:53 [main.go:121] Cache lookup request - Word: Left, PartOfSpeech: noun
+DEBUG: 2025/03/15 21:18:53 [mongo_cache.go:140] Cache miss for word: Left
+DEBUG: 2025/03/15 21:18:53 [main.go:138] Cache miss for word: Left
+INFO: 2025/03/15 21:18:53 [main.go:160] Generating image for word: Left (noun)
+DEBUG: 2025/03/15 21:18:53 [main.go:186] DALL-E prompt: Please draw a simple sketch of this: Left (noun) The left side or direction.
+INFO: 2025/03/15 21:19:01 [main.go:220] Successfully generated image for word: Left
+INFO: 2025/03/15 21:19:01 [mongo_cache.go:117] Created new cache entry for word: Left
+DEBUG: 2025/03/15 21:19:24 [main.go:121] Cache lookup request - Word: Left, PartOfSpeech: noun
+DEBUG: 2025/03/15 21:19:24 [mongo_cache.go:140] Cache miss for word: Left
+DEBUG: 2025/03/15 21:19:24 [main.go:138] Cache miss for word: Left
+INFO: 2025/03/15 21:19:24 [main.go:160] Generating image for word: Left (noun)
+DEBUG: 2025/03/15 21:19:24 [main.go:186] DALL-E prompt: Please draw a simple sketch of this: Left (noun) The ensemble of left-wing political parties. Those holding left-wing views as a group.
+INFO: 2025/03/15 21:19:35 [main.go:220] Successfully generated image for word: Left
+INFO: 2025/03/15 21:19:35 [mongo_cache.go:117] Created new cache entry for word: Left
+DEBUG: 2025/03/15 21:19:54 [main.go:121] Cache lookup request - Word: Hurdle, PartOfSpeech: noun
+DEBUG: 2025/03/15 21:19:54 [mongo_cache.go:140] Cache miss for word: Hurdle
+DEBUG: 2025/03/15 21:19:54 [main.go:138] Cache miss for word: Hurdle
+INFO: 2025/03/15 21:19:54 [main.go:160] Generating image for word: Hurdle (noun)
+DEBUG: 2025/03/15 21:19:54 [main.go:186] DALL-E prompt: Please draw a simple sketch of this: Hurdle (noun) An artificial barrier, variously constructed, over which athletes or horses jump in a race.
+INFO: 2025/03/15 21:20:07 [main.go:220] Successfully generated image for word: Hurdle
+INFO: 2025/03/15 21:20:07 [mongo_cache.go:117] Created new cache entry for word: Hurdle
+DEBUG: 2025/03/15 21:28:53 [main.go:121] Cache lookup request - Word: Hurdle, PartOfSpeech: noun
+DEBUG: 2025/03/15 21:28:53 [mongo_cache.go:140] Cache miss for word: Hurdle
+DEBUG: 2025/03/15 21:28:53 [main.go:138] Cache miss for word: Hurdle
+INFO: 2025/03/15 21:28:53 [main.go:160] Generating image for word: Hurdle (noun)
+DEBUG: 2025/03/15 21:28:53 [main.go:186] DALL-E prompt: Please draw a simple sketch of this: Hurdle (noun) A perceived obstacle.
+INFO: 2025/03/15 21:29:04 [main.go:220] Successfully generated image for word: Hurdle
+INFO: 2025/03/15 21:29:04 [mongo_cache.go:117] Created new cache entry for word: Hurdle
+DEBUG: 2025/03/15 21:29:08 [main.go:121] Cache lookup request - Word: Hurdle, PartOfSpeech: noun
+DEBUG: 2025/03/15 21:29:08 [mongo_cache.go:140] Cache miss for word: Hurdle
+DEBUG: 2025/03/15 21:29:08 [main.go:138] Cache miss for word: Hurdle
+INFO: 2025/03/15 21:29:08 [main.go:160] Generating image for word: Hurdle (noun)
+DEBUG: 2025/03/15 21:29:08 [main.go:186] DALL-E prompt: Please draw a simple sketch of this: Hurdle (noun) A movable frame of wattled twigs, osiers, or withes and stakes, or sometimes of iron, used for enclosing land, for folding sheep and cattle, for gates, etc.; also, in fortification, used as revetments, and for other purposes.
+INFO: 2025/03/15 21:29:23 [main.go:220] Successfully generated image for word: Hurdle
+INFO: 2025/03/15 21:29:23 [mongo_cache.go:117] Created new cache entry for word: Hurdle

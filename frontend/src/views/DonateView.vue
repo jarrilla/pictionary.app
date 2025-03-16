@@ -19,6 +19,7 @@
 
     <div class="thank-you-section">
       <h2>Thank you for your support!</h2>
+      <p style="font-size: 0.65rem; font-style: italic;">S.E.M</p>
     </div>
   </div>
 </template>
