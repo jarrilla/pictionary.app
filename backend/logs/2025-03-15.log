@@ -175,3 +175,21 @@ INFO: 2025/03/15 21:29:08 [main.go:160] Generating image for word: Hurdle (noun)
 DEBUG: 2025/03/15 21:29:08 [main.go:186] DALL-E prompt: Please draw a simple sketch of this: Hurdle (noun) A movable frame of wattled twigs, osiers, or withes and stakes, or sometimes of iron, used for enclosing land, for folding sheep and cattle, for gates, etc.; also, in fortification, used as revetments, and for other purposes.
 INFO: 2025/03/15 21:29:23 [main.go:220] Successfully generated image for word: Hurdle
 INFO: 2025/03/15 21:29:23 [mongo_cache.go:117] Created new cache entry for word: Hurdle
+DEBUG: 2025/03/15 21:32:22 [main.go:121] Cache lookup request - Word: long, PartOfSpeech: noun
+DEBUG: 2025/03/15 21:32:22 [mongo_cache.go:140] Cache miss for word: long
+DEBUG: 2025/03/15 21:32:22 [main.go:138] Cache miss for word: long
+INFO: 2025/03/15 21:32:22 [main.go:160] Generating image for word: long (noun)
+DEBUG: 2025/03/15 21:32:22 [main.go:186] DALL-E prompt: Please draw a simple sketch of this: long (noun) A long vowel.
+INFO: 2025/03/15 21:32:35 [main.go:220] Successfully generated image for word: long
+INFO: 2025/03/15 21:32:35 [mongo_cache.go:117] Created new cache entry for word: long
+DEBUG: 2025/03/15 21:32:41 [main.go:121] Cache lookup request - Word: long, PartOfSpeech: noun
+DEBUG: 2025/03/15 21:32:41 [mongo_cache.go:140] Cache miss for word: long
+DEBUG: 2025/03/15 21:32:41 [main.go:138] Cache miss for word: long
+INFO: 2025/03/15 21:32:41 [main.go:160] Generating image for word: long (noun)
+DEBUG: 2025/03/15 21:32:41 [main.go:186] DALL-E prompt: Please draw a simple sketch of this: long (noun) A long syllable.
+INFO: 2025/03/15 21:32:52 [main.go:220] Successfully generated image for word: long
+INFO: 2025/03/15 21:32:52 [mongo_cache.go:117] Created new cache entry for word: long
+DEBUG: 2025/03/15 21:33:26 [main.go:121] Cache lookup request - Word: long, PartOfSpeech: noun
+DEBUG: 2025/03/15 21:33:26 [mongo_cache.go:147] Cache hit for word: long
+DEBUG: 2025/03/15 21:33:28 [main.go:121] Cache lookup request - Word: long, PartOfSpeech: noun
+DEBUG: 2025/03/15 21:33:28 [mongo_cache.go:147] Cache hit for word: long

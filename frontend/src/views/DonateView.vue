@@ -19,23 +19,29 @@
 
     <div class="thank-you-section">
       <h2>Thank you for your support!</h2>
-      <p style="font-size: 0.65rem; font-style: italic;">S.E.M</p>
+    </div>
+
+    <div class="supporters">
+      <p>This project is dedicated to SEM, my creative muse and best friend.</p>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-
-// Real supporters would be fetched from an API
-const supporters = ref([
-  { name: 'Anonymous', tier: 'Gold Supporter' },
-  { name: 'Anonymous', tier: 'Silver Supporter' },
-  { name: 'Anonymous', tier: 'Bronze Supporter' }
-])
 </script>
 
 <style scoped>
+.supporters {
+  position: absolute;
+  left: calc(50% - 14rem);
+  bottom: 1rem;
+  text-align: center;
+  width: 28rem;
+  font-size: 0.8rem;
+  font-family: 'Birthstone', cursive;
+  font-style: italic;
+}
+
 .donate {
   max-width: 900px;
   margin: 0 auto;

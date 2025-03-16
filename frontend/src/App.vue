@@ -7,6 +7,10 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/donate">Donate</router-link>
     </nav>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap" rel="stylesheet">
   </header>
   <main>
     <router-view />
