@@ -9,7 +9,7 @@
         'height': hasDefinition ? '3.5rem' : '8rem'
       }"
     >
-      <h1 v-if="!hasDefinition">Type a word to look up</h1>
+      <h1 v-if="!hasDefinition">The dictionary for visual learners!</h1>
       <div class="search-box">
         <input 
           type="text" 
