@@ -5,7 +5,7 @@
   <header>
     <nav>
       <router-link to="/">Home</router-link> |
-      <router-link to="/donate">Donate</router-link>
+      <router-link to="/tip">Tip</router-link>
     </nav>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -1,9 +1,9 @@
 <template>
-  <div class="donate">
+  <div class="tip">
     <h1>Support Our Project</h1>
     <p class="description">
       Thank you for using our dictionary application! If you find it useful, please consider supporting
-      our project with a donation. Your contribution helps us maintain and improve the service.
+      our project with a tip. Your contribution helps us maintain and improve the service.
     </p>
 
     <div class="donation-button-container">
@@ -11,7 +11,7 @@
         href="https://buy.stripe.com/00g2bi0WR7Q5448dQQ" 
         target="_blank" 
         rel="noopener noreferrer"
-        class="donate-button"
+        class="tip-button"
       >
         Tip the Project
       </a>
@@ -42,7 +42,7 @@
   font-style: italic;
 }
 
-.donate {
+.tip {
   max-width: 900px;
   margin: 0 auto;
   padding: 20px;
@@ -65,7 +65,7 @@ h1 {
   margin: 40px 0;
 }
 
-.donate-button {
+.tip-button {
   display: inline-block;
   padding: 15px 40px;
   background-color: #42b983;
@@ -76,7 +76,7 @@ h1 {
   transition: background-color 0.3s;
 }
 
-.donate-button:hover {
+.tip-button:hover {
   background-color: #3aa876;
 }
 

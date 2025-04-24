@@ -19,9 +19,9 @@ const router = createRouter({
         : Promise.resolve(HomeView)
     },
     {
-      path: '/donate',
-      name: 'donate',
-      component: () => import('../views/DonateView.vue')
+      path: '/tip',
+      name: 'tip',
+      component: () => import('../views/TipView.vue')
     }
   ]
 })
