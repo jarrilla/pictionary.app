@@ -3,6 +3,7 @@ package db
 import (
 	"context"
 	"fmt"
+	"strings"
 	"time"
 
 	"pictionary-app/backend/src/logger"
@@ -92,6 +93,11 @@ func (c *MongoCache) Set(word, partOfSpeech, definition, imageData string) error
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
+	// Convert to lowercase before storing
+	word = strings.ToLower(word)
+	partOfSpeech = strings.ToLower(partOfSpeech)
+	definition = strings.ToLower(definition)
+
 	entry := CacheEntry{
 		Word:         word,
 		PartOfSpeech: partOfSpeech,
@@ -126,6 +132,11 @@ func (c *MongoCache) Set(word, partOfSpeech, definition, imageData string) error
 func (c *MongoCache) Get(word, partOfSpeech, definition string) (*CacheEntry, bool, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
+
+	// Convert to lowercase before querying
+	word = strings.ToLower(word)
+	partOfSpeech = strings.ToLower(partOfSpeech)
+	definition = strings.ToLower(definition)
 
 	filter := bson.M{
 		"word":         word,

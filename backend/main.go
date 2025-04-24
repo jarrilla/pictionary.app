@@ -114,9 +114,9 @@ func main() {
 
 func cacheHandler(w http.ResponseWriter, r *http.Request) {
 	// Get parameters from query string
-	word := strings.ToLower(r.URL.Query().Get("word"))
-	partOfSpeech := strings.ToLower(r.URL.Query().Get("partOfSpeech"))
-	definition := strings.ToLower(r.URL.Query().Get("definition"))
+	word := r.URL.Query().Get("word")
+	partOfSpeech := r.URL.Query().Get("partOfSpeech")
+	definition := r.URL.Query().Get("definition")
 
 	logger.Debug("Cache lookup request - Word: %s, PartOfSpeech: %s", word, partOfSpeech)
 
