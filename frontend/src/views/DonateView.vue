@@ -13,7 +13,7 @@
         rel="noopener noreferrer"
         class="donate-button"
       >
-        Donate Now
+        Tip the Project
       </a>
     </div>
 
