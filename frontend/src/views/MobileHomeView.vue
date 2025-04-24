@@ -200,8 +200,8 @@ const generateImage = async (word: string, partOfSpeech: string, definition: str
       params: { word, partOfSpeech, definition }
     })
     
-    if (cacheResponse.data && cacheResponse.data.imageUrl) {
-      imageUrl.value = cacheResponse.data.imageUrl
+    if (cacheResponse.data && cacheResponse.data.imageData) {
+      imageUrl.value = `data:image/png;base64,${cacheResponse.data.imageData}`
       isImageLoading.value = false
       return
     }
@@ -232,8 +232,8 @@ const regenerateImage = async () => {
     })
     
     if (!currentImageController.value?.signal.aborted) {
-      if (response.data && response.data.imageUrl) {
-        imageUrl.value = response.data.imageUrl
+      if (response.data && response.data.imageData) {
+        imageUrl.value = `data:image/png;base64,${response.data.imageData}`
       } else if (response.data && response.data.error) {
         imageError.value = response.data.error
       }

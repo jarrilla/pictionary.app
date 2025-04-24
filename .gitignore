@@ -16,3 +16,4 @@
 **/*.njsproj
 **/*.sln
 **/*.sw? 
+**/logs

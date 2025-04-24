@@ -18,12 +18,12 @@ type MongoCache struct {
 	collection *mongo.Collection
 }
 
-// CacheEntry represents a cached image URL with its metadata
+// CacheEntry represents a cached image with its metadata
 type CacheEntry struct {
 	Word         string    `bson:"word"`
 	PartOfSpeech string    `bson:"partOfSpeech"`
 	Definition   string    `bson:"definition"`
-	ImageURL     string    `bson:"imageUrl"`
+	ImageData    string    `bson:"imageData"`
 	CreatedAt    time.Time `bson:"createdAt"`
 }
 
@@ -88,7 +88,7 @@ func (c *MongoCache) Close() error {
 }
 
 // Set adds or updates a cache entry
-func (c *MongoCache) Set(word, partOfSpeech, definition, imageURL string) error {
+func (c *MongoCache) Set(word, partOfSpeech, definition, imageData string) error {
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
@@ -96,7 +96,7 @@ func (c *MongoCache) Set(word, partOfSpeech, definition, imageURL string) error 
 		Word:         word,
 		PartOfSpeech: partOfSpeech,
 		Definition:   definition,
-		ImageURL:     imageURL,
+		ImageData:    imageData,
 		CreatedAt:    time.Now(),
 	}
 

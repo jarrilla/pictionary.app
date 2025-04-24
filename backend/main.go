@@ -11,11 +11,11 @@ import (
 
 	"pictionary-app/backend/src/db"
 	"pictionary-app/backend/src/logger"
+	"pictionary-app/backend/src/openai"
 
 	"github.com/gorilla/mux"
 	"github.com/joho/godotenv"
 	"github.com/rs/cors"
-	"github.com/sashabaranov/go-openai"
 )
 
 // ImageRequest represents the request body for generating an image
@@ -27,8 +27,8 @@ type ImageRequest struct {
 
 // ImageResponse represents the response body for the generated image
 type ImageResponse struct {
-	ImageURL string `json:"imageUrl"`
-	Error    string `json:"error,omitempty"`
+	ImageData string `json:"imageData"`
+	Error     string `json:"error,omitempty"`
 }
 
 // CacheLookupRequest represents the request body for cache lookups
@@ -114,9 +114,9 @@ func main() {
 
 func cacheHandler(w http.ResponseWriter, r *http.Request) {
 	// Get parameters from query string
-	word := r.URL.Query().Get("word")
-	partOfSpeech := r.URL.Query().Get("partOfSpeech")
-	definition := r.URL.Query().Get("definition")
+	word := strings.ToLower(r.URL.Query().Get("word"))
+	partOfSpeech := strings.ToLower(r.URL.Query().Get("partOfSpeech"))
+	definition := strings.ToLower(r.URL.Query().Get("definition"))
 
 	logger.Debug("Cache lookup request - Word: %s, PartOfSpeech: %s", word, partOfSpeech)
 
@@ -143,7 +143,7 @@ func cacheHandler(w http.ResponseWriter, r *http.Request) {
 	// Return the cached image URL
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(ImageResponse{
-		ImageURL: entry.ImageURL,
+		ImageData: entry.ImageData,
 	})
 }
 
@@ -178,22 +178,21 @@ func generateImageHandler(w http.ResponseWriter, r *http.Request) {
 	client := openai.NewClient(apiKey)
 
 	// Create the prompt for DALL-E
-	prompt := fmt.Sprintf("Please draw a simple sketch of this: %s (%s) %s",
+	prompt := fmt.Sprintf("Without using words, please draw a simple sketch of this: %s (%s) %s",
 		req.Word,
 		req.PartOfSpeech,
 		req.Definition)
 
-	logger.Debug("DALL-E prompt: %s", prompt)
+	logger.Debug("GPT-Image-1 prompt: %s", prompt)
 
 	// Generate the image using DALL-E 3
-	resp, err := client.CreateImage(r.Context(), openai.ImageRequest{
-		Model:          openai.CreateImageModelDallE3,
-		Prompt:         prompt,
-		N:              1,
-		Size:           openai.CreateImageSize1024x1024,
-		Quality:        openai.CreateImageQualityStandard,
-		Style:          openai.CreateImageStyleNatural,
-		ResponseFormat: openai.CreateImageResponseFormatURL,
+	resp, err := client.CreateImage(openai.ImageGenerationRequest{
+		Model:      "gpt-image-1",
+		Prompt:     prompt,
+		N:          1,
+		Size:       "1024x1024",
+		Quality:    "low",
+		Moderation: "low",
 	})
 
 	if err != nil {
@@ -220,14 +219,14 @@ func generateImageHandler(w http.ResponseWriter, r *http.Request) {
 	logger.Info("Successfully generated image for word: %s", req.Word)
 
 	// Cache the generated image URL
-	err = imageCache.Set(req.Word, req.PartOfSpeech, req.Definition, resp.Data[0].URL)
+	err = imageCache.Set(req.Word, req.PartOfSpeech, req.Definition, resp.Data[0].B64JSON)
 	if err != nil {
 		logger.Error("Failed to cache image: %v", err)
 	}
 
-	// Return the image URL
+	// Return the base64-encoded image data
 	imageResp := ImageResponse{
-		ImageURL: resp.Data[0].URL,
+		ImageData: resp.Data[0].B64JSON,
 	}
 
 	// Set response headers

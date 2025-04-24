@@ -8,7 +8,7 @@
 
     <div class="donation-button-container">
       <a 
-        href="https://donate.stripe.com/cN2aHHcPQguI7aE7ss" 
+        href="https://buy.stripe.com/00g2bi0WR7Q5448dQQ" 
         target="_blank" 
         rel="noopener noreferrer"
         class="donate-button"
